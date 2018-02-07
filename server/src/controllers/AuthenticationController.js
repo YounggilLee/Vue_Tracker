@@ -38,7 +38,7 @@ module.exports = {
                 }) 
             }
 
-            const isPasswordValid = await user.comparePassword(password)
+            const isPasswordValid = password === user.password
 
             if (!isPasswordValid) {
                 res.status(403).send({
