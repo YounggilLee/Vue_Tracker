@@ -18,14 +18,22 @@
 
     <v-toobar-items>
       <v-btn flat dark
+        v-if="!$store.state.isUserLoggedIn"
        @click="navigateTo({name: 'login'})">
-        Log in
+        Log In
       </v-btn>
 
       <!-- <router-link to="register"></router-link> -->
       <v-btn flat dark
+       v-if="!$store.state.isUserLoggedIn"
        @click="navigateTo({name: 'register'})">
         Sign Up
+      </v-btn>
+
+      <v-btn flat dark
+       v-if="$store.state.isUserLoggedIn"
+       @click="logout">
+        Log Out
       </v-btn>
     </v-toobar-items>
 
@@ -38,6 +46,14 @@ export default {
   methods: {
     navigateTo (route) {
       this.$router.push(route)
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+
+      this.$router.push({
+        name: 'root'
+      })
     }
   }
 
