@@ -14,25 +14,16 @@
   </v-layout>
 
 
-
-  <!-- <v-layout>
-      <v-flex xs6>
-      <panel title="Youtube Video">
-
-       </panel>
+  <v-layout>
+    <v-flex xs6 class="mt-2">
+       <tab :song="song"/>
     </v-flex>
 
-
-    <v-flex xs6 class="ml-2">
-        <panel title="Lyrics">
-        <textarea
-         readonly
-          v-model="song.lyrics"
-        ></textarea>
-
-        </panel>
+     <v-flex xs6 class="ml-2 mt-2">
+      <lyrics :song="song"/>
     </v-flex>
-    </v-layout> -->
+
+  </v-layout>
 
 </div>
 </template>
@@ -40,6 +31,8 @@
 
 <script>
 import SongMetadata from './SongMetadata'
+import Lyrics from './Lyrics'
+import Tab from './Tab'
 import SongsService from '@/services/SongsService'
 import Panel from '@/components/Panel'
 import YouTube from './YouTube'
@@ -57,22 +50,12 @@ export default {
   components: {
     Panel,
     SongMetadata,
-    YouTube
+    YouTube,
+    Lyrics,
+    Tab
   }
 }
 </script>
 
-<style scoped>
 
-textarea {
-  width: 100%;
-  font-family: monospace;
-  border: none;
-  height: 600px;
-  border-style: none;
-  border-color: transparent;
-  overflow: auto;
-  padding: 40px;
-}
-</style>
 
