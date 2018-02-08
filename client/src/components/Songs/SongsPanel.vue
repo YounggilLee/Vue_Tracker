@@ -4,7 +4,7 @@
 
          <v-btn class="cyan accent-2"
           slot="action"
-          @click="navigateTo({name: 'songs-create'})"
+          :to="{name: 'songs-create'}"
           light
           small
           absolute
@@ -29,12 +29,13 @@
              </div>
 
             <v-btn class="cyan" dark
-              @click="navigateTo({
+
+             :to="{
                 name:'song',
                 params: {
                   songId: song.id
                 }
-               })">
+               }">
                View
              </v-btn>
 
@@ -62,11 +63,7 @@ export default {
 
     }
   },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    }
-  },
+
   watch: {
     '$route.query.search' : {
       immediate: true,

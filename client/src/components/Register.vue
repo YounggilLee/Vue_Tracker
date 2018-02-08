@@ -23,7 +23,7 @@
             </form>
             <br/>
 
-            <div class="error" v-html="error">
+            <div class="danger-alert" v-html="error">
             <br/>
             <v-btn
               dark
@@ -70,8 +70,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .error {
-    color: red;
-  }
+
 
 </style>
