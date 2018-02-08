@@ -23,7 +23,7 @@ module.exports = {
         } catch (err) {
             //email already exists
             res.status(500).send({
-                error: 'An error has occured trying to create th song!!'
+                error: 'An error has occured trying to create the song!!'
             })
         }
     },
@@ -35,9 +35,26 @@ module.exports = {
         } catch (err) {
             //email already exists
             res.status(500).send({
-                error: 'An error has occured trying to fetch the songs!!'
+                error: 'An error has occured trying to show the songs!!'
             })
         }
-    }
+    },
+
+    async put(req, res) {
+        try {
+            const song = await Song.update(req.body, {
+                where: {
+                    id: req.params.songId
+                }
+            })
+            res.send(req.body)
+        } catch (err) {
+            //email already exists
+            res.status(500).send({
+                error: 'An error has occured trying to update the song!!'
+            })
+        }
+    },
+    
 
 }
