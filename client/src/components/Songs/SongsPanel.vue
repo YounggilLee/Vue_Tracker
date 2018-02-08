@@ -1,6 +1,5 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
+
      <panel title="Songs">
 
          <v-btn class="cyan accent-2"
@@ -49,13 +48,12 @@
 
        </div>
      </panel>
-    </v-flex>
-</v-layout>
+
 
 </template>
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
+
 export default {
   data() {
     return {
@@ -68,9 +66,7 @@ export default {
       this.$router.push(route)
     }
   },
-  components: {
-    Panel
-  },
+
   async mounted() {
     this.songs = (await SongsService.index()).data
   }
