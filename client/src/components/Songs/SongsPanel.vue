@@ -52,6 +52,7 @@
 
 </template>
 <script>
+
 import SongsService from '@/services/SongsService'
 
 export default {
@@ -66,7 +67,14 @@ export default {
       this.$router.push(route)
     }
   },
-
+  watch: {
+    '$route.query.search' : {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
+  },
   async mounted() {
     this.songs = (await SongsService.index()).data
   }
