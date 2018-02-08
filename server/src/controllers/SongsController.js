@@ -26,6 +26,18 @@ module.exports = {
                 error: 'An error has occured trying to create th song!!'
             })
         }
+    },
+
+    async show(req, res) {
+        try {
+            const song = await Song.findById(req.params.songId)
+            res.send(song)
+        } catch (err) {
+            //email already exists
+            res.status(500).send({
+                error: 'An error has occured trying to fetch the songs!!'
+            })
+        }
     }
 
 }
