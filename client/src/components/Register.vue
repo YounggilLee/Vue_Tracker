@@ -23,7 +23,7 @@
             </form>
             <br/>
 
-            <div class="error" v-html="error"/>
+            <div class="error" v-html="error">
             <br/>
             <v-btn
               dark
